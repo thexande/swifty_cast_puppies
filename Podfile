@@ -7,6 +7,7 @@ target 'puppies' do
 
   # Pods for puppies
     pod 'SDWebImage'
+    pod 'CHTCollectionViewWaterfallLayout/Swift', :git => 'git@github.com:vvit/CHTCollectionViewWaterfallLayout.git', :branch => 'swift3'
 
   target 'puppiesTests' do
     inherit! :search_paths

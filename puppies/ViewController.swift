@@ -9,13 +9,6 @@
 import UIKit
 import SDWebImage
 
-struct Dog {
-    let profile_picture_url: URL
-    let name: String
-    let favorite_toy: String
-    let age: Int
-}
-
 class DogDetailViewController: UIViewController {
     fileprivate let profileImage: UIImageView = {
         let view = UIImageView()
@@ -59,7 +52,6 @@ class DogDetailViewController: UIViewController {
         self.nameLabel.text = dog.name
         self.toyLabel.text = dog.favorite_toy
         self.ageLabel.text = "\(String(dog.age)) Years in Dog Years!"
-        
         for view in sub_views { self.view.addSubview(view) }
         
         NSLayoutConstraint.activate([
@@ -136,33 +128,17 @@ class DogCell: UITableViewCell {
     
 }
 
-class ViewController: UITableViewController {
-    let dogProfileImages: [URL] = [
-        URL(string: "http://r.ddmcdn.com/w_830/s_f/o_1/cx_0/cy_220/cw_1255/ch_1255/APL/uploads/2014/11/dog-breed-selector-australian-shepherd.jpg")!,
-        URL(string: "http://cdn-img.health.com/sites/default/files/styles/400x400/public/styles/main/public/dogs-pembroke-welsh-corgi-400x400.jpg?itok=-_QJFWNN")!,
-        URL(string: "https://d2wq73xazpk036.cloudfront.net/media/27FB7F0C-9885-42A6-9E0C19C35242B5AC/A5F4E80F-72B7-458F-A40EB676E963E9A9/thul-1e3a85be-5590-5ef4-b332-bc456353498e.jpg?response-content-disposition=inline")!,
-        URL(string: "https://s-media-cache-ak0.pinimg.com/originals/b5/fa/82/b5fa82248e3fec6b798333e0043403b6.jpg")!,
-        URL(string: "https://s-media-cache-ak0.pinimg.com/736x/63/0f/0e/630f0ef3f6f3126ca11f19f4a9b85243.jpg")!,
-    ]
+class PuppiesTableViewController: UITableViewController {
+    let dogs = DogHelper.allDogs()
     
-    let dogNames: [String] = ["Fido", "Stimpy", "Corny", "Chuck", "Spot"]
-    
-    let favoriteToys: [String] = ["Tennis Ball", "Stick", "Shoe", "Bone", "Squeaky"]
-    
-    let dogAge: [Int] = [3, 6, 4, 7, 8]
-
-    lazy var dogs: [Dog] = {
-        var dogs = [Dog]()
-        for i in 0...4 {
-            let dog = Dog(profile_picture_url: self.dogProfileImages[i], name: self.dogNames[i], favorite_toy: self.favoriteToys[i], age: self.dogAge[i])
-            dogs.append(dog)
-        }
-        return dogs
-    }()
+    func pressedAllDogs() {
+        self.present(UINavigationController(rootViewController: AllDogsViewController()), animated: true, completion: nil)
+    }
     
     init() {
         super.init(style: .plain)
         title = "All About Dogs"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "All Dogs", style: .plain, target: self, action: #selector(pressedAllDogs))
         tableView.register(DogCell.self, forCellReuseIdentifier: NSStringFromClass(DogCell.self))
     }
     
