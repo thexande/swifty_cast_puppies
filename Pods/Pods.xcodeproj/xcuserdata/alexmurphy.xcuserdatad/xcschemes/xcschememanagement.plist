@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CHTCollectionViewWaterfallLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-puppies.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68FF7B6AE8242FC0CE9DD63DD9A1A287</key>
+		<key>3C45EF2AD907753E2EB5EAC357E57B59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D4CBF2D5CB8DE28E9271B9BB9EBB893</key>
+		<key>4D261E63B8C8B7C48D206341E90D7C69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>83DBBCE523C3F780DFE1B689B272DDE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SDWebImage
+import CHTCollectionViewWaterfallLayout
 
 extension UILabel {
     class func height(for string: String, width: CGFloat, font: UIFont) -> CGFloat {
@@ -20,7 +21,6 @@ extension UILabel {
         return label.frame.height
     }
 }
-
 
 class DogCollectionCell: UICollectionViewCell {
     let profileImage: UIImageView = {
@@ -95,13 +95,20 @@ class PuppiesCollectionViewController: UIViewController {
     let dogs = DogHelper.allDogs()
     
     lazy var collection: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        // Create a waterfall layout
+        let layout = CHTCollectionViewWaterfallLayout()
+        
+        // Change individual layout attributes for the spacing between cells
+        layout.minimumColumnSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(DogCollectionCell.self, forCellWithReuseIdentifier: NSStringFromClass(DogCollectionCell.self))
+        view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
+        view.alwaysBounceVertical = true
         view.delegate = self
         view.dataSource = self
         view.backgroundColor = UIColor.white
-        view.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -123,28 +130,18 @@ class PuppiesCollectionViewController: UIViewController {
     }
 }
 
-extension PuppiesCollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension PuppiesCollectionViewController: CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(DogCollectionCell.self), for: indexPath) as? DogCollectionCell else { return UICollectionViewCell() }
         cell.setDog(with: dogs[indexPath.row])
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (UIScreen.main.bounds.width / 2) - 15
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width / 2) - 15
         let descriptionHeight = UILabel.height(for: dogs[indexPath.row].dog_description, width: width - 20, font: UIFont.systemFont(ofSize: 12))
         let cellHeight = 10 + (width - 20) + 10 + 36 + 10 + descriptionHeight + 10
-        return CGSize(width: (UIScreen.main.bounds.width / 2) - 15, height: cellHeight)
+        return CGSize(width: width, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
