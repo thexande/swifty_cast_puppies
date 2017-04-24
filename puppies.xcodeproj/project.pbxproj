@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A923F971EAD295D009B3188 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F961EAD295D009B3188 /* DogDetailViewController.swift */; };
+		2A923F991EAD297C009B3188 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F981EAD297C009B3188 /* DogCell.swift */; };
+		2A923F9B1EAD29D6009B3188 /* DogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F9A1EAD29D6009B3188 /* DogHelper.swift */; };
+		2A923F9D1EAD2A89009B3188 /* DogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F9C1EAD2A89009B3188 /* DogCollectionViewController.swift */; };
 		2AC6AF631EA9BEE300CBBFCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6AF621EA9BEE300CBBFCF /* AppDelegate.swift */; };
 		2AC6AF651EA9BEE300CBBFCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6AF641EA9BEE300CBBFCF /* ViewController.swift */; };
 		2AC6AF6A1EA9BEE300CBBFCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC6AF691EA9BEE300CBBFCF /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A923F961EAD295D009B3188 /* DogDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
+		2A923F981EAD297C009B3188 /* DogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
+		2A923F9A1EAD29D6009B3188 /* DogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogHelper.swift; sourceTree = "<group>"; };
+		2A923F9C1EAD2A89009B3188 /* DogCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogCollectionViewController.swift; sourceTree = "<group>"; };
 		2AC6AF5F1EA9BEE300CBBFCF /* puppies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puppies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC6AF621EA9BEE300CBBFCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AC6AF641EA9BEE300CBBFCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +148,10 @@
 				2AC6AF691EA9BEE300CBBFCF /* Assets.xcassets */,
 				2AC6AF6B1EA9BEE300CBBFCF /* LaunchScreen.storyboard */,
 				2AC6AF6E1EA9BEE300CBBFCF /* Info.plist */,
+				2A923F961EAD295D009B3188 /* DogDetailViewController.swift */,
+				2A923F981EAD297C009B3188 /* DogCell.swift */,
+				2A923F9A1EAD29D6009B3188 /* DogHelper.swift */,
+				2A923F9C1EAD2A89009B3188 /* DogCollectionViewController.swift */,
 			);
 			path = puppies;
 			sourceTree = "<group>";
@@ -443,7 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A923F9B1EAD29D6009B3188 /* DogHelper.swift in Sources */,
+				2A923F9D1EAD2A89009B3188 /* DogCollectionViewController.swift in Sources */,
 				2AC6AF651EA9BEE300CBBFCF /* ViewController.swift in Sources */,
+				2A923F971EAD295D009B3188 /* DogDetailViewController.swift in Sources */,
+				2A923F991EAD297C009B3188 /* DogCell.swift in Sources */,
 				2AC6AF631EA9BEE300CBBFCF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
