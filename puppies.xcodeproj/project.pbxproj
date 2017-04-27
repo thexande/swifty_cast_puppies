@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4B1CF51EB19ADA009EF814 /* DogCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B1CF41EB19ADA009EF814 /* DogCollectionCell.swift */; };
 		2A923F971EAD295D009B3188 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F961EAD295D009B3188 /* DogDetailViewController.swift */; };
 		2A923F991EAD297C009B3188 /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F981EAD297C009B3188 /* DogCell.swift */; };
 		2A923F9B1EAD29D6009B3188 /* DogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A923F9A1EAD29D6009B3188 /* DogHelper.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A4B1CF41EB19ADA009EF814 /* DogCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogCollectionCell.swift; sourceTree = "<group>"; };
 		2A923F961EAD295D009B3188 /* DogDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
 		2A923F981EAD297C009B3188 /* DogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		2A923F9A1EAD29D6009B3188 /* DogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogHelper.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				2A923F981EAD297C009B3188 /* DogCell.swift */,
 				2A923F9A1EAD29D6009B3188 /* DogHelper.swift */,
 				2A923F9C1EAD2A89009B3188 /* DogCollectionViewController.swift */,
+				2A4B1CF41EB19ADA009EF814 /* DogCollectionCell.swift */,
 			);
 			path = puppies;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 			files = (
 				2A923F9B1EAD29D6009B3188 /* DogHelper.swift in Sources */,
 				2A923F9D1EAD2A89009B3188 /* DogCollectionViewController.swift in Sources */,
+				2A4B1CF51EB19ADA009EF814 /* DogCollectionCell.swift in Sources */,
 				2AC6AF651EA9BEE300CBBFCF /* ViewController.swift in Sources */,
 				2A923F971EAD295D009B3188 /* DogDetailViewController.swift in Sources */,
 				2A923F991EAD297C009B3188 /* DogCell.swift in Sources */,

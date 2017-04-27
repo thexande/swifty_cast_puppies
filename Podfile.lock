@@ -1,14 +1,27 @@
 PODS:
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.5)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout/Swift (from `git@github.com:vvit/CHTCollectionViewWaterfallLayout.git`, branch `swift3`)
   - SDWebImage
 
+EXTERNAL SOURCES:
+  CHTCollectionViewWaterfallLayout:
+    :branch: swift3
+    :git: git@github.com:vvit/CHTCollectionViewWaterfallLayout.git
+
+CHECKOUT OPTIONS:
+  CHTCollectionViewWaterfallLayout:
+    :commit: d67763411ee8a5e9667158b1c1f4480568a22d22
+    :git: git@github.com:vvit/CHTCollectionViewWaterfallLayout.git
+
 SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: eebf0569430542897b88a1b119894509e2963301
+PODFILE CHECKSUM: ce6aa2e9b4ad0d7134ec5f7723a2f9c92598511b
 
 COCOAPODS: 1.2.0

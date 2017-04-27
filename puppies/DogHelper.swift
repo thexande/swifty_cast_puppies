@@ -15,11 +15,20 @@ struct Dog {
     let favorite_toy: String
     let age: Int
     let color: UIColor
+    let dog_description: String
 }
 
 class DogHelper {
     static func allDogs() -> [Dog] {
         let colors: [UIColor] = [.red, .blue, .green, .black, .purple]
+        let dogDescriptions: [String] = [
+            "Fido enjoys long runs on the beach with a majestic sunset as a backdrop.",
+            "Stimpy, like most hipsters, enjoys spening his time sipping micro brew beers while wearing a bowtie. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Corny watches over his land and chases any squirell foolish enough to touch down from one of the many trees.",
+            "Chuck is a manic sniffer, and will sniff anything he can get his snout within 10 feet of. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Spot is still a puppy, so he enjoys eating food he didn't work for and making a mess on the floor that someone else has to clean up."
+        ]
+        
         let dogProfileImages: [URL] = [
             URL(string: "http://r.ddmcdn.com/w_830/s_f/o_1/cx_0/cy_220/cw_1255/ch_1255/APL/uploads/2014/11/dog-breed-selector-australian-shepherd.jpg")!,
             URL(string: "http://cdn-img.health.com/sites/default/files/styles/400x400/public/styles/main/public/dogs-pembroke-welsh-corgi-400x400.jpg?itok=-_QJFWNN")!,
@@ -36,7 +45,7 @@ class DogHelper {
         
         var dogs = [Dog]()
         for i in 0...4 {
-            let dog = Dog(profile_picture_url: dogProfileImages[i], name: dogNames[i], favorite_toy: favoriteToys[i], age: dogAge[i], color: colors[i])
+            let dog = Dog(profile_picture_url: dogProfileImages[i], name: dogNames[i], favorite_toy: favoriteToys[i], age: dogAge[i], color: colors[i], dog_description: dogDescriptions[i])
             dogs.append(dog)
         }
         return dogs

@@ -9,68 +9,35 @@
 import Foundation
 import UIKit
 import SDWebImage
+import CHTCollectionViewWaterfallLayout
 
-class DogCollectionCell: UICollectionViewCell {
-    let dogImage: UIImageView = {
-        let view = UIImageView()
-        view.layer.cornerRadius = 7
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 30)
-        label.textAlignment = .center
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var views: [UIView] = [self.dogImage, self.nameLabel]
-    
-    func setDog(with dog: Dog) {
-        dogImage.sd_setImage(with: dog.profile_picture_url)
-        nameLabel.text = dog.name
-        contentView.backgroundColor = dog.color
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.layer.cornerRadius = 7
-        contentView.layer.masksToBounds = true
-        for view in views { contentView.addSubview(view) }
-        contentView.backgroundColor = .black
-        
-        NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: dogImage, attribute: .width, relatedBy: .equal, toItem: contentView, attribute: .width, multiplier: 1, constant: -20),
-            NSLayoutConstraint(item: dogImage, attribute: .height, relatedBy: .equal, toItem: dogImage, attribute: .width, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: dogImage, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: dogImage, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 10)
-        ])
-        
-        NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: dogImage, attribute: .bottom, multiplier: 1, constant: 10),
-            NSLayoutConstraint(item: nameLabel, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
-        ])
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+
+
+extension UILabel {
+    class func height(for string: String, width: CGFloat, font: UIFont) -> CGFloat {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+        label.font = font
+        label.text = string
+        label.numberOfLines = 0
+        label.sizeToFit()
+        return label.frame.height
     }
 }
+
 
 class DogCollectionViewController: UIViewController {
     
     let dogs = DogHelper.allDogs()
     
     lazy var collection: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = CHTCollectionViewWaterfallLayout()
+        layout.minimumColumnSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.columnCount = 2
+        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.delegate = self
         view.dataSource = self
-        view.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
         view.register(DogCollectionCell.self, forCellWithReuseIdentifier: NSStringFromClass(DogCollectionCell.self))
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +64,7 @@ class DogCollectionViewController: UIViewController {
     }
 }
 
-extension DogCollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension DogCollectionViewController: CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(DogCollectionCell.self), for: indexPath) as? DogCollectionCell else { return UICollectionViewCell() }
         cell.setDog(with: dogs[indexPath.row])
@@ -108,9 +75,11 @@ extension DogCollectionViewController: UICollectionViewDelegateFlowLayout, UICol
         return dogs.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width / 2) - 15
-        return  CGSize(width: width, height: 230)
+        let dogDescriptionHeight = UILabel.height(for: self.dogs[indexPath.row].dog_description, width: width, font: UIFont.systemFont(ofSize: 12))
+        let height = 10 + (width - 20) + 10 + 36 + 10 + dogDescriptionHeight + 30
+        return  CGSize(width: width, height: height)
     }
 }
 

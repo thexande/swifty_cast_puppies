@@ -16,7 +16,7 @@ class DogCell: UITableViewCell {
             self.nameLabel.text = dog?.name
         }
     }
-    
+
     fileprivate let profileImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +47,7 @@ class DogCell: UITableViewCell {
             NSLayoutConstraint(item: nameLabel, attribute: .left, relatedBy: .equal, toItem: profileImage, attribute: .right, multiplier: 1, constant: 20),
             NSLayoutConstraint(item: nameLabel, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0)
             ])
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
