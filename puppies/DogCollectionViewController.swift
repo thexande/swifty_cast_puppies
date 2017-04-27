@@ -75,6 +75,10 @@ extension DogCollectionViewController: CHTCollectionViewDelegateWaterfallLayout,
         return dogs.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(DogDetailViewController(with: self.dogs[indexPath.row]), animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width / 2) - 15
         let dogDescriptionHeight = UILabel.height(for: self.dogs[indexPath.row].dog_description, width: width, font: UIFont.systemFont(ofSize: 12))
