@@ -1,11 +1,13 @@
 PODS:
   - CHTCollectionViewWaterfallLayout/Swift (0.9.5)
+  - Pageboy (1.0.5)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - CHTCollectionViewWaterfallLayout/Swift (from `git@github.com:vvit/CHTCollectionViewWaterfallLayout.git`, branch `swift3`)
+  - Pageboy
   - SDWebImage
 
 EXTERNAL SOURCES:
@@ -20,8 +22,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
+  Pageboy: 7fd2c36c92693232fa4bc2382ac681e3f956f830
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: ce6aa2e9b4ad0d7134ec5f7723a2f9c92598511b
+PODFILE CHECKSUM: 5517cb08387de04c266451e94ad5b883d1bdbc94
 
 COCOAPODS: 1.2.0

@@ -34,7 +34,6 @@ class AllDogsViewController: UIPageViewController {
     }
 }
 
-
 extension AllDogsViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? DogDetailViewController else { return nil }

@@ -76,7 +76,9 @@ extension DogCollectionViewController: CHTCollectionViewDelegateWaterfallLayout,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(DogDetailViewController(with: self.dogs[indexPath.row]), animated: true)
+        let nav = parent?.navigationController
+        
+        self.parent?.parent?.navigationController?.pushViewController(DogDetailViewController(with: self.dogs[indexPath.row]), animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {

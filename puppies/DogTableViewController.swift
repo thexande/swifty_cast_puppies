@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ViewController: UITableViewController {
+class DogTableViewController: UITableViewController {
     let dogs = DogHelper.allDogs()
     init() {
         super.init(style: .plain)
