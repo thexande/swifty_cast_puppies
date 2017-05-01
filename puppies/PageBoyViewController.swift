@@ -72,7 +72,7 @@ extension MasterDogViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(NavigationCell.self), for: indexPath) as? NavigationCell else { return UICollectionViewCell() }
-        cell.itemTitle = indexPath.row == 0 ? "Collection View" : "Table View List"
+        cell.itemTitle = indexPath.row == 0 ? "Collection View" : "Table View"
         return cell
     }
     
