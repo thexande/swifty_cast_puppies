@@ -72,7 +72,7 @@ extension MasterDogViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(NavigationCell.self), for: indexPath) as? NavigationCell else { return UICollectionViewCell() }
-        cell.itemTitle = indexPath.row == 0 ? "Collection View" : "Table View"
+        cell.itemTitle = indexPath.row == 0 ? "Collection View" : "Table View List"
         return cell
     }
     
@@ -163,14 +163,13 @@ class MasterDogPageViewController: PageboyViewController {
 extension MasterDogPageViewController: PageboyViewControllerDataSource, PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, willScrollToPageAtIndex index: Int, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        self.swipingDelegate?.willScroll(to: index)
     }
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollToPosition position: CGPoint, direction: PageboyViewController.NavigationDirection, animated: Bool) {
      return
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didScrollToPageAtIndex index: Int, direction: PageboyViewController.NavigationDirection, animated: Bool) {
-        return
+        self.swipingDelegate?.willScroll(to: index)
     }
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didReload viewControllers: [UIViewController], currentIndex: PageboyViewController.PageIndex) {
